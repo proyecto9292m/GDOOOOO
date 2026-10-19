@@ -1,0 +1,318 @@
+<!-- ============================================================
+     politicas-cookies.html
+     ============================================================ -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de Cookies | GasesEnCasa</title>
+  <meta name="description" content="Política de cookies de GasesEnCasa. Solo usamos cookies técnicas necesarias. Guía educativa gratuita sobre gases en el hogar.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0a3d62">
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --azul-primario: #0a3d62;
+      --azul-claro: #1e6091;
+      --azul-suave: #e8f2fa;
+      --azul-acento: #2c7da0;
+      --azul-borde: #c9dff0;
+      --texto: #1e2b3a;
+      --texto-suave: #4a5f73;
+      --fondo: #ffffff;
+      --fondo-alt: #f5f9fd;
+      --blanco: #ffffff;
+      --sombra: 0 4px 24px rgba(10, 61, 98, 0.06);
+      --radio: 16px;
+      --radio-sm: 10px;
+      --max-ancho: 1200px;
+      --transicion: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --fuente: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    body {
+      font-family: var(--fuente);
+      color: var(--texto);
+      background: var(--fondo);
+      line-height: 1.7;
+      font-size: 17px;
+      -webkit-font-smoothing: antialiased;
+    }
+    .contenedor {
+      width: 100%;
+      max-width: var(--max-ancho);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .cabecera {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(10, 61, 98, 0.06);
+      z-index: 1000;
+    }
+    .barra-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 24px;
+      max-width: var(--max-ancho);
+      margin: 0 auto;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: var(--azul-primario);
+      text-decoration: none;
+    }
+    .logo-icono {
+      width: 42px;
+      height: 42px;
+      background: var(--azul-primario);
+      color: #fff;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      font-size: 1.2rem;
+    }
+    .menu {
+      display: flex;
+      gap: 4px;
+      list-style: none;
+      align-items: center;
+    }
+    .menu a {
+      color: var(--texto);
+      padding: 8px 16px;
+      border-radius: var(--radio-sm);
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all var(--transicion);
+      text-decoration: none;
+    }
+    .menu a:hover { background: var(--fondo-alt); color: var(--azul-primario); }
+    .boton-menu {
+      display: none;
+      background: none;
+      border: 2px solid var(--azul-borde);
+      border-radius: var(--radio-sm);
+      padding: 8px 12px;
+      cursor: pointer;
+      font-size: 1.3rem;
+      color: var(--azul-primario);
+    }
+    .contenido-legal {
+      padding: 80px 0;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    .contenido-legal h1 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      color: var(--azul-primario);
+      margin-bottom: 16px;
+      font-weight: 800;
+    }
+    .contenido-legal .fecha {
+      color: var(--texto-suave);
+      font-size: 0.9rem;
+      margin-bottom: 40px;
+    }
+    .contenido-legal h2 {
+      font-size: 1.5rem;
+      color: var(--azul-primario);
+      margin: 40px 0 16px;
+      font-weight: 700;
+    }
+    .contenido-legal p { color: var(--texto-suave); margin-bottom: 16px; }
+    .contenido-legal ul { margin: 12px 0 20px 24px; color: var(--texto-suave); }
+    .contenido-legal li { margin-bottom: 8px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 0.95rem;
+    }
+    th, td {
+      border: 1px solid var(--azul-borde);
+      padding: 12px 16px;
+      text-align: left;
+    }
+    th {
+      background: var(--azul-suave);
+      color: var(--azul-primario);
+      font-weight: 700;
+    }
+    td { color: var(--texto-suave); }
+    .aviso {
+      border-radius: var(--radio);
+      padding: 24px 30px;
+      border-left: 6px solid var(--azul-acento);
+      background: #f0f7fd;
+      margin: 24px 0;
+    }
+    .aviso.exito { border-left-color: var(--azul-primario); background: #e8f2fa; }
+    .aviso p { margin-bottom: 0; }
+    .boton {
+      display: inline-block;
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      transition: all var(--transicion);
+      text-decoration: none;
+      font-family: var(--fuente);
+      background: var(--azul-primario);
+      color: #fff;
+      margin-top: 8px;
+    }
+    .boton:hover { background: var(--azul-claro); transform: translateY(-2px); }
+    .pie {
+      background: var(--azul-primario);
+      color: rgba(255, 255, 255, 0.85);
+      padding: 40px 0 28px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    .pie a { color: #ffffff; text-decoration: none; margin: 0 8px; }
+    .pie a:hover { text-decoration: underline; }
+    @media (max-width: 860px) {
+      .boton-menu { display: block; }
+      .menu {
+        position: absolute;
+        top: 70px; left: 0; right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        background: #fff;
+        border-bottom: 1px solid var(--azul-borde);
+        padding: 12px 20px;
+        display: none;
+        box-shadow: 0 8px 24px rgba(10, 61, 98, 0.12);
+      }
+      .menu.abierto { display: flex; }
+      .menu a { padding: 12px 16px; }
+      .contenido-legal { padding: 56px 0; }
+      table { font-size: 0.85rem; }
+      th, td { padding: 8px 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="cabecera">
+    <nav class="barra-nav" aria-label="Navegación principal">
+      <a href="index.html" class="logo">
+        <span class="logo-icono">🔥</span>
+        <span>GasesEnCasa</span>
+      </a>
+      <button class="boton-menu" id="botonMenu" aria-label="Abrir menú" aria-expanded="false">☰</button>
+      <ul class="menu" id="menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="index.html#que-son-gases">Gases</a></li>
+        <li><a href="index.html#seguridad">Seguridad</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="contenedor">
+    <div class="contenido-legal">
+      <h1>Política de Cookies</h1>
+      <p class="fecha">Última actualización: enero de 2026</p>
+
+      <div class="aviso exito">
+        <p><strong>Resumen:</strong> esta web solo utiliza <strong>cookies técnicas
+        necesarias</strong>. No usamos cookies de publicidad, de análisis de terceros
+        ni de seguimiento personalizado.</p>
+      </div>
+
+      <h2>1. ¿Qué son las cookies?</h2>
+      <p>Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo
+      cuando visitas un sitio web. Sirven para recordar información sobre tu visita,
+      como tus preferencias o si ya aceptaste un aviso.</p>
+
+      <h2>2. ¿Qué cookies usamos?</h2>
+      <p>En GasesEnCasa utilizamos únicamente cookies técnicas imprescindibles para el
+      funcionamiento básico del sitio:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Tipo</th>
+            <th>Finalidad</th>
+            <th>Duración</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>gasesencasa_cookies</td>
+            <td>Técnica (localStorage)</td>
+            <td>Recordar si aceptaste o rechazaste el aviso de cookies para no mostrarlo de nuevo.</td>
+            <td>Hasta que la borres</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>3. ¿Qué cookies NO usamos?</h2>
+      <ul>
+        <li>Cookies de publicidad o remarketing.</li>
+        <li>Cookies de análisis de terceros (Google Analytics, etc.).</li>
+        <li>Cookies de redes sociales.</li>
+        <li>Cookies de seguimiento personalizado.</li>
+      </ul>
+
+      <h2>4. ¿Cómo gestionar las cookies?</h2>
+      <p>Puedes aceptar o rechazar las cookies en el aviso que aparece al entrar al sitio.
+      Además, puedes borrar las cookies y el almacenamiento local desde la configuración
+      de tu navegador:</p>
+      <ul>
+        <li><strong>Chrome:</strong> Configuración → Privacidad y seguridad → Borrar datos de navegación.</li>
+        <li><strong>Firefox:</strong> Preferencias → Privacidad y seguridad → Cookies y datos del sitio.</li>
+        <li><strong>Edge:</strong> Configuración → Privacidad, búsqueda y servicios → Borrar datos de exploración.</li>
+        <li><strong>Safari:</strong> Preferencias → Privacidad → Gestionar datos de sitios web.</li>
+      </ul>
+
+      <h2>5. Cambios en esta política</h2>
+      <p>Podemos actualizar esta política si cambiamos las cookies utilizadas. Publicaremos
+      siempre la fecha de la última actualización en esta misma página.</p>
+
+      <h2>6. Más información</h2>
+      <p>Si tienes dudas sobre el uso de cookies, puedes escribirnos a
+      <strong>contacto@gasesencasa.example</strong> o consultar nuestra
+      <a href="privacidad.html">Política de Privacidad</a>.</p>
+
+      <a href="index.html" class="boton">← Volver a la guía</a>
+    </div>
+  </main>
+
+  <footer class="pie">
+    <p>© 2026 GasesEnCasa — Guía educativa gratuita</p>
+    <p>
+      <a href="index.html">Inicio</a> ·
+      <a href="privacidad.html">Privacidad</a> ·
+      <a href="politicas-cookies.html">Cookies</a> ·
+      <a href="contacto.html">Contacto</a>
+    </p>
+  </footer>
+
+  <script>
+    (function() {
+      var botonMenu = document.getElementById('botonMenu');
+      var menu = document.getElementById('menu');
+      if (botonMenu && menu) {
+        botonMenu.addEventListener('click', function() {
+          var abierto = menu.classList.toggle('abierto');
+          botonMenu.setAttribute('aria-expanded', abierto ? 'true' : 'false');
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

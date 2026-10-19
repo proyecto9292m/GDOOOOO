@@ -1,0 +1,399 @@
+<!-- ============================================================
+     contacto.html
+     ============================================================ -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto | GasesEnCasa</title>
+  <meta name="description" content="Contacta con GasesEnCasa. Guía educativa gratuita sobre gases en el hogar. Escríbenos tus dudas o sugerencias.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0a3d62">
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --azul-primario: #0a3d62;
+      --azul-claro: #1e6091;
+      --azul-suave: #e8f2fa;
+      --azul-acento: #2c7da0;
+      --azul-borde: #c9dff0;
+      --texto: #1e2b3a;
+      --texto-suave: #4a5f73;
+      --fondo: #ffffff;
+      --fondo-alt: #f5f9fd;
+      --blanco: #ffffff;
+      --sombra: 0 4px 24px rgba(10, 61, 98, 0.06);
+      --sombra-fuerte: 0 12px 48px rgba(10, 61, 98, 0.12);
+      --radio: 16px;
+      --radio-sm: 10px;
+      --max-ancho: 1200px;
+      --transicion: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --fuente: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    body {
+      font-family: var(--fuente);
+      color: var(--texto);
+      background: var(--fondo);
+      line-height: 1.7;
+      font-size: 17px;
+      -webkit-font-smoothing: antialiased;
+    }
+    .contenedor {
+      width: 100%;
+      max-width: var(--max-ancho);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .cabecera {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(10, 61, 98, 0.06);
+      z-index: 1000;
+    }
+    .barra-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 24px;
+      max-width: var(--max-ancho);
+      margin: 0 auto;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: var(--azul-primario);
+      text-decoration: none;
+    }
+    .logo-icono {
+      width: 42px;
+      height: 42px;
+      background: var(--azul-primario);
+      color: #fff;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      font-size: 1.2rem;
+    }
+    .menu {
+      display: flex;
+      gap: 4px;
+      list-style: none;
+      align-items: center;
+    }
+    .menu a {
+      color: var(--texto);
+      padding: 8px 16px;
+      border-radius: var(--radio-sm);
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all var(--transicion);
+      text-decoration: none;
+    }
+    .menu a:hover { background: var(--fondo-alt); color: var(--azul-primario); }
+    .boton-menu {
+      display: none;
+      background: none;
+      border: 2px solid var(--azul-borde);
+      border-radius: var(--radio-sm);
+      padding: 8px 12px;
+      cursor: pointer;
+      font-size: 1.3rem;
+      color: var(--azul-primario);
+    }
+    .seccion-contacto {
+      padding: 80px 0;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .seccion-contacto h1 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      color: var(--azul-primario);
+      margin-bottom: 16px;
+      font-weight: 800;
+    }
+    .seccion-contacto .intro {
+      color: var(--texto-suave);
+      margin-bottom: 40px;
+      max-width: 640px;
+    }
+    .rejilla-contacto {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .info-contacto {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .info-item {
+      background: var(--blanco);
+      border: 1px solid var(--azul-borde);
+      border-radius: var(--radio);
+      padding: 24px;
+      box-shadow: var(--sombra);
+    }
+    .info-item .icono {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      display: block;
+    }
+    .info-item h3 {
+      font-size: 1.1rem;
+      color: var(--azul-primario);
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+    .info-item p {
+      color: var(--texto-suave);
+      font-size: 0.95rem;
+      margin: 0;
+      word-break: break-word;
+    }
+    .formulario {
+      background: var(--blanco);
+      border: 1px solid var(--azul-borde);
+      border-radius: var(--radio);
+      padding: 36px 32px;
+      box-shadow: var(--sombra);
+    }
+    .formulario h2 {
+      font-size: 1.4rem;
+      color: var(--azul-primario);
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+    .formulario p.ayuda {
+      font-size: 0.9rem;
+      color: var(--texto-suave);
+      margin-bottom: 24px;
+    }
+    .campo {
+      margin-bottom: 18px;
+    }
+    .campo label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--azul-primario);
+      margin-bottom: 6px;
+    }
+    .campo input,
+    .campo textarea {
+      width: 100%;
+      padding: 13px 16px;
+      border: 1px solid var(--azul-borde);
+      border-radius: var(--radio-sm);
+      font-size: 0.95rem;
+      font-family: var(--fuente);
+      background: var(--fondo-alt);
+      transition: all var(--transicion);
+      color: var(--texto);
+    }
+    .campo input:focus,
+    .campo textarea:focus {
+      outline: none;
+      border-color: var(--azul-acento);
+      background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(44, 125, 160, 0.12);
+    }
+    .campo textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    .btn-enviar {
+      display: inline-block;
+      padding: 14px 40px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: all var(--transicion);
+      font-family: var(--fuente);
+      background: var(--azul-primario);
+      color: #ffffff;
+      box-shadow: 0 4px 16px rgba(10, 61, 98, 0.25);
+    }
+    .btn-enviar:hover {
+      background: var(--azul-claro);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(10, 61, 98, 0.35);
+    }
+    .aviso {
+      border-radius: var(--radio);
+      padding: 24px 30px;
+      border-left: 6px solid var(--azul-acento);
+      background: #f0f7fd;
+      margin: 40px 0 0;
+    }
+    .aviso.peligro { border-left-color: #e17055; background: #fdf0ed; }
+    .aviso p { margin-bottom: 0; color: var(--texto-suave); }
+    .pie {
+      background: var(--azul-primario);
+      color: rgba(255, 255, 255, 0.85);
+      padding: 40px 0 28px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    .pie a { color: #ffffff; text-decoration: none; margin: 0 8px; }
+    .pie a:hover { text-decoration: underline; }
+    @media (max-width: 860px) {
+      .boton-menu { display: block; }
+      .menu {
+        position: absolute;
+        top: 70px; left: 0; right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        background: #fff;
+        border-bottom: 1px solid var(--azul-borde);
+        padding: 12px 20px;
+        display: none;
+        box-shadow: 0 8px 24px rgba(10, 61, 98, 0.12);
+      }
+      .menu.abierto { display: flex; }
+      .menu a { padding: 12px 16px; }
+      .seccion-contacto { padding: 56px 0; }
+      .rejilla-contacto { grid-template-columns: 1fr; gap: 28px; }
+      .formulario { padding: 28px 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="cabecera">
+    <nav class="barra-nav" aria-label="Navegación principal">
+      <a href="index.html" class="logo">
+        <span class="logo-icono">🔥</span>
+        <span>GasesEnCasa</span>
+      </a>
+      <button class="boton-menu" id="botonMenu" aria-label="Abrir menú" aria-expanded="false">☰</button>
+      <ul class="menu" id="menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="index.html#que-son-gases">Gases</a></li>
+        <li><a href="index.html#seguridad">Seguridad</a></li>
+        <li><a href="contacto.html" class="activo">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="contenedor">
+    <div class="seccion-contacto">
+      <h1>Contacto</h1>
+      <p class="intro">¿Tienes dudas, sugerencias o quieres reportar un error en el contenido?
+      Escríbenos. Esta guía es educativa y gratuita, y tu opinión ayuda a mejorarla.</p>
+
+      <div class="rejilla-contacto">
+        <!-- INFO -->
+        <div class="info-contacto">
+          <div class="info-item">
+            <span class="icono">📧</span>
+            <h3>Correo electrónico</h3>
+            <p>contacto@gasesencasa.example</p>
+          </div>
+          <div class="info-item">
+            <span class="icono">⏱️</span>
+            <h3>Tiempo de respuesta</h3>
+            <p>Respondemos en un plazo aproximado de 24 a 48 horas hábiles.</p>
+          </div>
+          <div class="info-item">
+            <span class="icono">📞</span>
+            <h3>Emergencias</h3>
+            <p>En caso de fuga de gas o intoxicación, llama al <strong>123</strong> (Colombia)
+            o a tu distribuidora de gas. No uses este formulario para emergencias.</p>
+          </div>
+        </div>
+
+        <!-- FORMULARIO -->
+        <div class="formulario">
+          <h2>Envíanos un mensaje</h2>
+          <p class="ayuda">Los campos marcados con * son obligatorios. No compartimos tus datos con terceros.</p>
+          <form id="formContacto" novalidate>
+            <div class="campo">
+              <label for="nombre">Nombre *</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+            </div>
+            <div class="campo">
+              <label for="email">Correo electrónico *</label>
+              <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" required>
+            </div>
+            <div class="campo">
+              <label for="asunto">Asunto</label>
+              <input type="text" id="asunto" name="asunto" placeholder="Motivo de tu mensaje">
+            </div>
+            <div class="campo">
+              <label for="mensaje">Mensaje *</label>
+              <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje aquí..." required></textarea>
+            </div>
+            <button type="submit" class="btn-enviar">Enviar mensaje</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="aviso peligro">
+        <p><strong>Importante:</strong> este formulario es una demostración educativa y no
+        envía datos a un servidor real. Si necesitas contactarnos de verdad, escribe
+        directamente a <strong>contacto@gasesencasa.example</strong>.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="pie">
+    <p>© 2026 GasesEnCasa — Guía educativa gratuita</p>
+    <p>
+      <a href="index.html">Inicio</a> ·
+      <a href="privacidad.html">Privacidad</a> ·
+      <a href="politicas-cookies.html">Cookies</a> ·
+      <a href="contacto.html">Contacto</a>
+    </p>
+  </footer>
+
+  <script>
+    (function() {
+      // Menú móvil
+      var botonMenu = document.getElementById('botonMenu');
+      var menu = document.getElementById('menu');
+      if (botonMenu && menu) {
+        botonMenu.addEventListener('click', function() {
+          var abierto = menu.classList.toggle('abierto');
+          botonMenu.setAttribute('aria-expanded', abierto ? 'true' : 'false');
+        });
+      }
+
+      // Formulario (simulación educativa)
+      var form = document.getElementById('formContacto');
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          var nombre = document.getElementById('nombre').value.trim();
+          var email = document.getElementById('email').value.trim();
+          var mensaje = document.getElementById('mensaje').value.trim();
+
+          if (!nombre || !email || !mensaje) {
+            alert('⚠️ Por favor completa los campos obligatorios: nombre, correo y mensaje.');
+            return;
+          }
+
+          var emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+          if (!emailValido) {
+            alert('⚠️ Por favor ingresa un correo electrónico válido.');
+            return;
+          }
+
+          alert('✅ ¡Gracias, ' + nombre + '! Tu mensaje ha sido registrado (simulación educativa).\n\n' +
+                'En un sitio real, aquí se enviaría el correo a contacto@gasesencasa.example.');
+          form.reset();
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
