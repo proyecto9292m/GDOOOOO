@@ -473,8 +473,8 @@
         <button class="boton aceptar" id="btn-aceptar-cookies" type="button">Aceptar cookies</button>
       </div>
       <div class="cookie-enlaces">
-        <a href="#politica-privacidad" id="enlace-privacidad">Política de Privacidad</a> ·
-        <a href="#politica-cookies" id="enlace-cookies">Política de Cookies</a>
+        <a href="#politica-privacidad">Política de Privacidad</a> ·
+        <a href="#politica-cookies">Política de Cookies</a>
       </div>
     </div>
   </div>
@@ -693,13 +693,13 @@
           calentar agua.</p>
 
           <h3>Ventajas</h3>
-<ul style="list-style: none; padding: 0;">
-  <li style="display: flex; gap: 12px; align-items: flex-start; margin-bottom: 10px;">✔ Es más económico que el GLP en muchas regiones.</li>
-  <li style="display: flex; gap: 12px; align-items: flex-start; margin-bottom: 10px;">✔ No requiere almacenamiento en cilindros.</li>
-  <li style="display: flex; gap: 12px; align-items: flex-start; margin-bottom: 10px;">✔ Produce menos emisiones que otros combustibles fósiles.</li>
-</ul>
+          <ul style="list-style: none; padding: 0;">
+            <li style="display: flex; gap: 12px; align-items: flex-start; margin-bottom: 10px;">✔ Es más económico que el GLP en muchas regiones.</li>
+                        <li style="display: flex; gap: 12px; align-items: flex-start; margin-bottom: 10px;">✔ No requiere almacenamiento en cilindros.</li>
+            <li style="display: flex; gap: 12px; align-items: flex-start; margin-bottom: 10px;">✔ Produce menos emisiones que otros combustibles fósiles.</li>
+          </ul>
 
-<h3>Precauciones</h3>
+          <h3>Precauciones</h3>
           <div class="aviso peligro">
             <h3>⚠️ Si hueles gas natural</h3>
             <ul style="padding-left: 1.2rem; margin-top: 8px;">
@@ -1044,19 +1044,11 @@
   </div>
 
   <!-- ============================================================
-  JAVASCRIPT - COOKIES Y MENÚ (CON MODOS 1 y 2)
+  JAVASCRIPT - COOKIES Y MENÚ (LIMPIO, SIN REDIRECCIONES)
   ============================================================ -->
   <script>
     (function() {
       'use strict';
-
-      // ============================================================
-      //  CONFIGURACIÓN DEL MODO DE LOS BOTONES DE COOKIES
-      //  MODO 1: Comportamiento original (solo muestra/oculta la página)
-      //  MODO 2: Redirección a URL externa
-      // ============================================================
-      var COOKIE_BUTTON_MODE = 2; // Cambia entre 1 y 2
-      var REDIRECT_URL = "https://rebrand.ly/flightscheaponline"; // URL para el modo 2
 
       // ----- ELEMENTOS DEL BANNER -----
       var overlay = document.getElementById('cookie-overlay');
@@ -1075,7 +1067,7 @@
       banner.classList.add('visible');
       document.body.classList.add('cookie-locked');
 
-      // Muestra el contenido (MODO 1)
+      // Muestra el contenido y oculta el banner
       function mostrarContenido() {
         overlay.classList.remove('visible');
         banner.classList.remove('visible');
@@ -1083,70 +1075,25 @@
         contenidoPrincipal.classList.add('visible');
       }
 
-      // Redirige a una URL (MODO 2)
-      function redirectTo(url) {
-        window.location.href = url;
-      }
-
-      // Manejo según el modo configurado
+      // Guarda la preferencia y muestra el contenido
       function handleCookieAction(aceptadas) {
-        console.log('🍪 Acción:', aceptadas ? 'Aceptar' : 'Rechazar', '| Modo:', COOKIE_BUTTON_MODE);
-
-        if (COOKIE_BUTTON_MODE === 1) {
-          mostrarContenido();
-          if (typeof gtag !== 'undefined') {
-            gtag('consent', 'update', {
-              'ad_storage': aceptadas ? 'granted' : 'denied',
-              'analytics_storage': aceptadas ? 'granted' : 'denied'
-            });
-          }
-          try { localStorage.setItem('gasesencasa_cookies', aceptadas ? 'aceptadas' : 'rechazadas'); } catch (e) {}
-          console.log('Cookies', aceptadas ? 'ACEPTADAS' : 'RECHAZADAS');
-        } else if (COOKIE_BUTTON_MODE === 2) {
-          try { sessionStorage.setItem('cookiesAccepted', aceptadas ? 'true' : 'false'); } catch (e) {}
-          redirectTo(REDIRECT_URL);
-        } else {
-          mostrarContenido();
-        }
+        mostrarContenido();
+        try {
+          localStorage.setItem('gasesencasa_cookies', aceptadas ? 'aceptadas' : 'rechazadas');
+        } catch (e) {}
       }
 
       // Eventos de los botones
       btnAceptar.addEventListener('click', function() { handleCookieAction(true); });
       btnRechazar.addEventListener('click', function() { handleCookieAction(false); });
 
-      // Manejo de los enlaces del banner (solo si existen y tienen ID)
-      var enlacePrivacidad = document.getElementById('enlace-privacidad');
-      var enlaceCookies = document.getElementById('enlace-cookies');
-
-      function handleBannerLinkClick(event) {
-        if (COOKIE_BUTTON_MODE === 2) {
-          event.preventDefault();
-          console.log('🔗 Enlace del banner clicado en modo 2. Redirigiendo...');
-          redirectTo(REDIRECT_URL);
+      // Si ya eligió antes, mostrar directamente el contenido
+      try {
+        var pref = localStorage.getItem('gasesencasa_cookies');
+        if (pref === 'aceptadas' || pref === 'rechazadas') {
+          mostrarContenido();
         }
-      }
-
-      if (enlacePrivacidad) { enlacePrivacidad.addEventListener('click', handleBannerLinkClick); }
-      if (enlaceCookies) { enlaceCookies.addEventListener('click', handleBannerLinkClick); }
-
-      // Verificar si ya se aceptó antes (MODO 2)
-      if (COOKIE_BUTTON_MODE === 2) {
-        try {
-          if (sessionStorage.getItem('cookiesAccepted') === 'true') {
-            redirectTo(REDIRECT_URL);
-          }
-        } catch (e) {}
-      }
-
-      // Verificar preferencia previa (MODO 1)
-      if (COOKIE_BUTTON_MODE === 1) {
-        try {
-          var pref = localStorage.getItem('gasesencasa_cookies');
-          if (pref === 'aceptadas' || pref === 'rechazadas') {
-            mostrarContenido();
-          }
-        } catch (e) {}
-      }
+      } catch (e) {}
 
       // ----- MENÚ MÓVIL -----
       var botonMenu = document.getElementById('botonMenu');
